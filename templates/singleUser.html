@@ -2,9 +2,9 @@
 {% block content %}
 <h1 class="header">blog posts!</h1>
 {% for blog in userblogs %}
-<h1><a href="/blog?user={{user}}">{{blog.title}}</h1></a>
+<h1><a href="/blog?id={{blog.id}}">{{blog.title}}</h1></a>
 <p>{{blog.body}}</p>
-<p>Written by {{blog.owner_id}}</p>
+<p>Written by <a href="/blog?user={{blog.owner.id}}">{{blog.owner.username}}</a></a></p>
 {% endfor %}
     
 {% endblock %}

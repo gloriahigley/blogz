@@ -109,8 +109,8 @@ def logout():
 def blog():
     if request.args.get("id"):
         blog_id = request.args.get("id")
-        blog_query = Blog.query.get(blog_id)
-        return render_template('singleBlogEntry.html', blogs=blog_query)
+        blog_query = Blog.query.filter_by(id=blog_id).first()
+        return render_template('singleBlogEntry.html', blog=blog_query)
 
     elif request.args.get("user"):
         user_id = request.args.get("user")
@@ -118,11 +118,9 @@ def blog():
         userblogs = Blog.query.filter_by(owner=user).all()
         return render_template('singleUser.html', userblogs= userblogs)
     
-    #blog_query = Blog.query.all()
-    #return render_template('blog.html', blog_query=blog_query)
+    blog_query = Blog.query.all()
+    return render_template('blog.html', blog_query=blog_query)
     
-    #return render_template('userpage.html', userblogs= userblogs)
-
 
 @app.route('/newpost', methods=['POST', 'GET'])
 def newpost():
