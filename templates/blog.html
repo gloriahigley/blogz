@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<h1 class="header">Build a Blog</h1>
-    {% for blog in blogs %}
+<h1 class="header">blog posts!</h1>
+    {% for blog in blog_query %}
     <h1><a href="./newblog?id={{blog.id}}">{{blog.title}}</h1></a>
     <p>{{blog.body}}</p>
+    <p>written by {{blog.owner.username}}</p>
     {% endfor %}
 
 {% endblock %}

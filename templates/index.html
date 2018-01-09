@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="header">blog users!</h1>
+{% for user in user_query %}
+<ul>
+    <a href="/blog?user={{user.id}}"><li>{{user.username}}</li></a>
+</ul>
+
+{% endfor %}
+
+{% endblock %}
