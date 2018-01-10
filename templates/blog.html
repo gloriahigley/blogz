@@ -6,8 +6,7 @@
     {% for blog in blog_query %}
     <h1><a href="./newblog?id={{blog.id}}">{{blog.title}}</h1></a>
     <p>{{blog.body}}</p>
-    <p>Written by <a href="/blog?user={{blog.owner.id}}">{{blog.owner.username}}    {% endfor %}
+    <p>Written by <a href="/blog?user={{blog.owner.id}}">{{blog.owner.username}}    
+    {% endfor %}
 
 {% endblock %}
-
-<!-- <h1><url_for('newblog', id=id)>{{blog.title}}</h1> -->

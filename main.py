@@ -155,7 +155,6 @@ def newblog():
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    #user_id = request.args.get('id')
     user_query = User.query.all()
     return render_template('index.html', user_query=user_query)
 
